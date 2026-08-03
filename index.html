@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PH DOS CORTES</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { 
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial; 
+  color: #fff; 
+  background-image: url('fundo-barber.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: -1;
+}
+
+/* HEADER */
+.header {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+.menu-btn {
+  font-size: 30px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+.logo {
+  font-size: 28px;
+  font-weight: 800;
+  color: #d4a017;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+  text-align: center;
+  flex: 1;
+  letter-spacing: 2px;
+}
+
+/* MENU LATERAL */
+.sidebar {
+  position: fixed;
+  top: 0; left: -300px;
+  width: 280px;
+  height: 100%;
+  background: #161b22;
+  transition: 0.3s;
+  padding-top: 80px;
+  z-index: 20;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.5);
+}
+.sidebar.active { left: 0; }
+.sidebar a {
+  display: block;
+  padding: 15px 25px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  border-bottom: 1px solid #30363d;
+}
+.sidebar a:hover { background: #d4a017; color: #000; }
+.close-btn {
+  position: absolute;
+  top: 15px; right: 20px;
+  font-size: 30px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* CONTEUDO PRINCIPAL */
+.main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  gap: 20px;
+}
+.btn-mapa {
+  background: rgba(212, 160, 23, 0.95);
+  color: #000;
+  padding: 14px 30px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+.btn-agenda {
+  background: #25D366;
+  color: white;
+  padding: 16px 35px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+}
+
+/* PAGINAS DA GALERIA */
+.page {
+  display: none;
+  padding: 80px 20px 40px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.page.active { display: block; }
+.page h2 { color: #d4a017; text-align: center; font-size: 28px; margin-bottom: 20px; }
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+}
+.galeria-grid img {
+  width: 100%;
+  border-radius: 10px;
+  border: 2px solid #d4a017;
+}
+.voltar-btn {
+  background: #30363d;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+</style>
+</head>
+<body>
+
+<!-- MENU LATERAL -->
+<div class="sidebar" id="sidebar">
+  <button class="close-btn" onclick="toggleMenu()">×</button>
+  <a href="#" onclick="showPage('home')">Início</a>
+  <a href="#" onclick="showPage('galeria')">Galeria</a>
+  <a href="#" onclick="showPage('galeria-kids')">Galeria Kids</a>
+</div>
+
+<!-- HEADER -->
+<div class="header">
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+  <div class="logo">PH DOS CORTES</div>
+</div>
+
+<!-- TELA PRINCIPAL -->
+<div id="home" class="main page active">
+  <a href="https://maps.app.goo.gl/i2s3XrPSPhoCFsY17" target="_blank" class="btn-mapa">📍 VER LOCALIZAÇÃO</a>
+  
+  <a href="https://wa.me/5551XXXXXXXXX?text=Quero agendar um horário na PH DOS CORTES" target="_blank" class="btn-agenda">AGENDAR HORÁRIO</a>
+</div>
+
+<!-- GALERIA -->
+<div id="galeria" class="page">
+  <button class="voltar-btn" onclick="showPage('home')">← Voltar</button>
+  <h2>Galeria - Cortes, Barba e Pinturas</h2>
+  <div class="galeria-grid">
+    <p style="text-align:center; grid-column:1/-1;">Envia as fotos dos cortes do PH que eu te ensino a adicionar aqui</p>
+  </div>
+</div>
+
+<!-- GALERIA KIDS -->
+<div id="galeria-kids" class="page">
+  <button class="voltar-btn" onclick="showPage('home')">← Voltar</button>
+  <h2>Galeria Kids</h2>
+  <div class="galeria-grid">
+    <p style="text-align:center; grid-column:1/-1;">Envia as fotos dos cortes kids que eu adiciono aqui</p>
+  </div>
+</div>
+
+<script>
+function toggleMenu() {
+  document.getElementById('sidebar').classList.toggle('active');
+}
+
+function showPage(pageId) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById(pageId).classList.add('active');
+  document.getElementById('sidebar').classList.remove('active');
+  window.scrollTo(0, 0);
+}
+</script>
+
+</body>
+</html>
