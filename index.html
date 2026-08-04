@@ -90,15 +90,13 @@ body::before {
   padding: 20px;
 }
 
-/* BOTÃO LOCALIZAÇÃO COM ILUSTRAÇÃO */
+/* BOTÃO LOCALIZAÇÃO COM TUA IMAGEM DE MAPA */
 .btn-mapa {
   background: #d4a017;
   color: #000;
-  padding: 0;
   border-radius: 15px;
   text-decoration: none;
   box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-  width: auto;
   
   position: absolute;
   top: 100px;
@@ -107,34 +105,24 @@ body::before {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  width: 260px;
 }
 .btn-mapa .titulo {
-  padding: 12px 25px;
+  padding: 12px;
   font-weight: bold;
   font-size: 16px;
   text-align: center;
   background: #d4a017;
 }
-.btn-mapa .mapa-img {
-  width: 240px; /* tamanho menor igual antes */
-  height: 100px;
-  background: #87CEEB; /* fundo azul claro tipo mapa */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.btn-mapa .mapa-ilustracao {
+  width: 100%;
+  height: 110px;
+  background-image: url('mapa-ilustracao.png'); /* TUA IMAGEM AQUI */
+  background-size: cover;
+  background-position: center;
   position: relative;
-}
-.btn-mapa .mapa-img::before {
-  content: "📍";
-  font-size: 40px;
-  position: absolute;
-}
-.btn-mapa .mapa-img::after {
-  content: "Google";
-  font-size: 12px;
-  color: #555;
-  position: absolute;
-  bottom: 5px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 
 /* BOTÃO AGENDAR */
@@ -147,14 +135,12 @@ body::before {
   font-weight: bold;
   font-size: 16px;
   box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-  width: auto;
   
   position: absolute;
   bottom: 50px;
   left: 50%;
   transform: translateX(-50%);
   
-  /* CENTRALIZA O TEXTO */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -214,7 +200,7 @@ body::before {
   
   <a href="https://maps.app.goo.gl/i2s3XrPSPhoCFsY17" target="_blank" class="btn-mapa">
     <div class="titulo">📍 NOSSO ENDEREÇO</div>
-    <div class="mapa-img"></div>
+    <div class="mapa.JPG"></div>
   </a>
   
   <a href="https://wa.me/5551XXXXXXXXX?text=Quero agendar um horário na PH DOS CORTES" target="_blank" class="btn-agenda">AGENDAR<br>HORÁRIO</a>
