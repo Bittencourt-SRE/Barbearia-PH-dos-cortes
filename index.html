@@ -86,13 +86,11 @@ body::before {
 /* CONTEUDO PRINCIPAL */
 .main {
   min-height: 100vh;
+  position: relative; /* pra conseguir jogar o botão lá embaixo */
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  text-align: center;
   padding: 20px;
-  gap: 20px;
 }
 .btn-mapa {
   background: rgba(212, 160, 23, 0.95);
@@ -103,6 +101,7 @@ body::before {
   font-weight: bold;
   font-size: 16px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  margin-top: 100px; /* desce pra ficar abaixo do PH DOS CORTES */
 }
 .btn-agenda {
   background: #25D366;
@@ -113,6 +112,13 @@ body::before {
   font-weight: bold;
   font-size: 18px;
   box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+  
+  /* BOTÃO NO ASFALTO */
+  position: absolute;
+  bottom: 50px; /* se quiser subir/descer mexe aqui */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
 }
 
 /* PAGINAS DA GALERIA */
