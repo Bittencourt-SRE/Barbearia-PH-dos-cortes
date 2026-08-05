@@ -125,6 +125,72 @@ body::before {
   border-bottom-right-radius: 15px;
 }
 
+/* NOVO: TÍTULO E CARROSSEL NO MEIO */
+.titulo-avaliacoes {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #d4a017;
+  font-size: 18px;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+  width: 100%;
+  margin-top: -50px; /* sobe o título pra cima do carrossel */
+}
+
+.carrossel-container {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 85%;
+  max-width: 320px;
+  height: 80px;
+  overflow-x: auto; /* PERMITE GIRAR COM O DEDO */
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory; /* TRAVA NO CARD */
+  display: flex;
+  gap: 15px;
+  padding: 5px 0;
+  scrollbar-width: none; /* tira barra de rolagem */
+}
+.carrossel-container::-webkit-scrollbar { display: none; }
+
+.carrossel-track {
+  display: flex;
+  gap: 15px;
+}
+.card-avaliacao {
+  background: rgba(20, 20, 20, 0.9);
+  border: 2px solid #d4a017;
+  border-radius: 15px;
+  padding: 10px 12px;
+  width: 100%;
+  min-width: 100%; /* CADA CARD OCUPA 100% DA LARGURA */
+  height: 70px;
+  scroll-snap-align: center;
+  flex-shrink: 0;
+}
+.card-avaliacao .estrelas { 
+  color: #ffd700; 
+  font-size: 14px; 
+  margin-bottom: 4px; 
+}
+.card-avaliacao p { 
+  font-size: 11px; 
+  line-height: 1.3; 
+  color: #fff;
+  margin-bottom: 3px;
+}
+.card-avaliacao span { 
+  font-weight: bold; 
+  color: #d4a017; 
+  font-size: 10px; 
+}
+
 /* BOTÃO AGENDAR */
 .btn-agenda {
   background: #25D366;
@@ -202,6 +268,33 @@ body::before {
     <div class="titulo">📍 NOSSO ENDEREÇO</div>
     <div class="mapa-ilustracao"></div>
   </a>
+
+  <!-- NOVO: TITULO + CARROSSEL NO MEIO -->
+  <div class="titulo-avaliacoes">NOSSAS AVALIAÇÕES</div>
+  <div class="carrossel-container" id="carrossel">
+    <div class="carrossel-track">
+      <div class="card-avaliacao">
+        <div class="estrelas">⭐</div>
+        <p>"Melhor corte da lomba. Ambiente climatizado."</p>
+        <span>- Thierre Rodrigues</span>
+      </div>
+      <div class="card-avaliacao">
+        <div class="estrelas">⭐⭐⭐</div>
+        <p>"Proprietário muito atencioso. Lugar limpo."</p>
+        <span>- Edmilson Bittencourt</span>
+      </div>
+      <div class="card-avaliacao">
+        <div class="estrelas">⭐⭐⭐⭐⭐</div>
+        <p>"Ótima barbearia, atendimento muito bom"</p>
+        <span>- Hiago Oliveira</span>
+      </div>
+      <div class="card-avaliacao">
+        <div class="estrelas">⭐⭐⭐⭐</div>
+        <p>"Excelente profissional"</p>
+        <span>- Jéferson Abreu</span>
+      </div>
+    </div>
+  </div>
   
   <a href="https://wa.me/5551984254783?text=Fala%20PH%2C%20Bora%20dar%20um%20trato%20nesse%20cabelo!" target="_blank" class="btn-agenda">AGENDAR<br>HORÁRIO</a>
 </div>
@@ -235,6 +328,27 @@ function showPage(pageId) {
   document.getElementById('sidebar').classList.remove('active');
   window.scrollTo(0, 0);
 }
+
+/* NOVO: AUTO SCROLL DO CARROSSEL */
+const carrossel = document.getElementById('carrossel');
+let scrollAmount = 0;
+let autoScroll = setInterval(() => {
+  const cardWidth = carrossel.querySelector('.card-avaliacao').offsetWidth + 15; // 15 = gap
+  scrollAmount += cardWidth;
+  
+  if(scrollAmount >= carrossel.scrollWidth - carrossel.clientWidth) {
+    scrollAmount = 0; // volta pro inicio
+  }
+  
+  carrossel.scrollTo({
+    left: scrollAmount,
+    behavior: 'smooth'
+  });
+}, 3000); // 3 segundos pra trocar. Deixa mais lento se quiser
+
+// para o auto scroll quando o usuário mexe com o dedo
+carrossel.addEventListener('touchstart', () => clearInterval(autoScroll));
+carrossel.addEventListener('mousedown', () => clearInterval(autoScroll));
 </script>
 
 </body>
