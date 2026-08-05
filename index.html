@@ -6,9 +6,9 @@
 <title>PH DOS CORTES</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { 
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial; 
-  color: #fff; 
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial;
+  color: #fff;
   background-image: url('IMG_5014.png');
   background-size: cover;
   background-position: center;
@@ -90,14 +90,14 @@ body::before {
   padding: 20px;
 }
 
-/* BOTÃO LOCALIZAÇÃO 25% MENOR */
+/* BOTÃO LOCALIZAÇÃO */
 .btn-mapa {
   background: #d4a017;
   color: #000;
   border-radius: 15px;
   text-decoration: none;
   box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-  
+
   position: absolute;
   top: 100px;
   left: 50%;
@@ -107,14 +107,14 @@ body::before {
   overflow: hidden;
   width: 195px;
 }
-.btn-mapa .titulo {
+.btn-mapa.titulo {
   padding: 9px;
   font-weight: bold;
   font-size: 13px;
   text-align: center;
   background: #d4a017;
 }
-.btn-mapa .mapa-ilustracao {
+.btn-mapa.mapa-ilustracao {
   width: 100%;
   height: 82px;
   background-image: url('mapa.JPG');
@@ -135,31 +135,76 @@ body::before {
   font-weight: bold;
   font-size: 16px;
   box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-  
+
   position: absolute;
   bottom: 50px;
   left: 50%;
   transform: translateX(-50%);
-  
+
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   line-height: 1.3;
+  z-index: 5;
 }
 
-/* SEÇÃO AVALIAÇÕES */
+/* SEÇÃO AVALIAÇÕES CARROSSEL 3D */
 .avaliacoes {
   padding: 60px 20px;
   text-align: center;
   background: rgba(0,0,0,0.5);
-  margin-top: 120px; /* espaço pra não ficar em cima do botão */
+  margin-top: 280px;
+  perspective: 1000px;
 }
 .avaliacoes h2 {
   color: #d4a017;
   font-size: 26px;
+  margin-bottom: 10px;
+}
+.avaliacoes.subtitulo {
+  color: #fff;
+  font-size: 14px;
   margin-bottom: 30px;
 }
+.carrossel-3d {
+  width: 300px;
+  height: 200px;
+  margin: 0 auto;
+  position: relative;
+}
+.cilindro {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  animation: girarCilindro 15s infinite linear;
+}
+@keyframes girarCilindro {
+  from { transform: rotateX(0deg); }
+  to { transform: rotateX(-360deg); }
+}
+.card-avaliacao {
+  position: absolute;
+  width: 280px;
+  height: 170px;
+  left: 10px;
+  background: #161b22;
+  border: 2px solid #d4a017;
+  border-radius: 12px;
+  padding: 15px;
+  text-align: left;
+  box-shadow: 0 0 20px rgba(212, 160, 23, 0.3);
+}
+.card-avaliacao.estrelas { color: #d4a017; font-size: 16px; margin-bottom: 8px; }
+.card-avaliacao p { font-size: 13px; line-height: 1.4; margin-bottom: 8px; }
+.card-avaliacao span { font-weight: bold; color: #d4a017; font-size: 12px; }
+
+/* Posiciona cada card no "cilindro" */
+.card-avaliacao:nth-child(1) { transform: rotateX(0deg) translateZ(120px); }
+.card-avaliacao:nth-child(2) { transform: rotateX(90deg) translateZ(120px); }
+.card-avaliacao:nth-child(3) { transform: rotateX(180deg) translateZ(120px); }
+.card-avaliacao:nth-child(4) { transform: rotateX(270deg) translateZ(120px); }
 
 /* PAGINAS DA GALERIA */
 .page {
@@ -210,22 +255,48 @@ body::before {
 
 <!-- TELA PRINCIPAL -->
 <div id="home" class="main page active">
-  
+
   <a href="https://maps.app.goo.gl/i2s3XrPSPhoCFsY17" target="_blank" class="btn-mapa">
     <div class="titulo">📍 NOSSO ENDEREÇO</div>
     <div class="mapa-ilustracao"></div>
   </a>
-  
+
   <a href="https://wa.me/5551984254783?text=Fala%20PH%2C%20Bora%20dar%20um%20trato%20nesse%20cabelo!" target="_blank" class="btn-agenda">AGENDAR<br>HORÁRIO</a>
 
-  <!-- SEÇÃO AVALIAÇÕES GOOGLE -->
+  <!-- SEÇÃO AVALIAÇÕES CARROSSEL -->
   <section class="avaliacoes">
-    <h2>Avaliações no Google</h2>
-    
-    <!-- WIDGET GRÁTIS - AVALIAÇÕES DO PH -->
-    <script src="https://static.elfsight.com/platform.js" async></script>
-    <div class="elfsight-app-6a7b8c9d-1e2f-3a4b-5c6d-7e8f9a0b1c2d" data-elfsight-app-lazy></div>
-    <!-- Esse widget já está configurado com o link do PH -->
+    <h2>⭐ 5.0 no Google</h2>
+    <p class="subtitulo">17 avaliações</p>
+
+    <div class="carrossel-3d">
+      <div class="cilindro" id="cilindro">
+
+        <div class="card-avaliacao">
+          <div class="estrelas">⭐</div>
+          <p>"Proprietário muito atencioso e educado, Lugar limpo, Organizado e aconchegante, Indico de olhos fechados a todos meus amigos!"</p>
+          <span>- Edmilson Bittencourt</span>
+        </div>
+
+        <div class="card-avaliacao">
+          <div class="estrelas">⭐</div>
+          <p>"Melhor corte da lomba do pinheiro, ambiente climatizado, bom atendimento e ótima qualidade. Super recomendo!"</p>
+          <span>- Thierre Rodrigues Da Conceição</span>
+        </div>
+
+        <div class="card-avaliacao">
+          <div class="estrelas">⭐⭐⭐⭐⭐</div>
+          <p>"Ótima barbearia, atendimento muito bom"</p>
+          <span>- Hiago Oliveira</span>
+        </div>
+
+        <div class="card-avaliacao">
+          <div class="estrelas">⭐</div>
+          <p>"Excelente profissional"</p>
+          <span>- Jéferson Abreu</span>
+        </div>
+
+      </div>
+    </div>
   </section>
 
 </div>
@@ -259,6 +330,30 @@ function showPage(pageId) {
   document.getElementById('sidebar').classList.remove('active');
   window.scrollTo(0, 0);
 }
+
+// Arrastar com o dedo
+let isDragging = false;
+let startY = 0;
+let currentRotate = 0;
+const cilindro = document.getElementById('cilindro');
+
+cilindro.addEventListener('touchstart', (e) => {
+  isDragging = true;
+  startY = e.touches[0].clientY;
+  cilindro.style.animation = 'none';
+});
+
+cilindro.addEventListener('touchmove', (e) => {
+  if(!isDragging) return;
+  let deltaY = e.touches[0].clientY - startY;
+  currentRotate += deltaY * 0.3;
+  cilindro.style.transform = `rotateX(${currentRotate}deg)`;
+});
+
+cilindro.addEventListener('touchend', () => {
+  isDragging = false;
+  cilindro.style.animation = 'girarCilindro 15s infinite linear';
+});
 </script>
 
 </body>
