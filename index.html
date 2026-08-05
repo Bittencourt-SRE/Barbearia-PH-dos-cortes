@@ -2,26 +2,28 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>PH DOS CORTES</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { 
+  height: 100vh;
+  overflow: hidden;
+}
 body { 
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial; 
   color: #fff; 
   background-image: url('IMG_5014.png');
   background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  overflow-x: hidden;
-  font-size: 14px; /* REDUZIU TUDO 25% */
+  background-position: center top;
+  background-repeat: no-repeat;
 }
 body::before {
   content: "";
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.55);
   z-index: -1;
 }
 
@@ -29,27 +31,27 @@ body::before {
 .header {
   position: absolute;
   top: 0; left: 0; right: 0;
-  padding: 15px; /* menor */
+  padding: 12px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 10;
 }
 .menu-btn {
-  font-size: 24px; /* menor */
+  font-size: 26px;
   background: none;
   border: none;
   color: #fff;
   cursor: pointer;
 }
 .logo {
-  font-size: 21px; /* 25% menor */
+  font-size: 22px;
   font-weight: 800;
   color: #d4a017;
   text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
   text-align: center;
   flex: 1;
-  letter-spacing: 1.5px;
+  letter-spacing: 2px;
 }
 
 /* MENU LATERAL */
@@ -62,7 +64,6 @@ body::before {
   transition: 0.3s;
   padding-top: 80px;
   z-index: 20;
-  box-shadow: 2px 0 10px rgba(0,0,0,0.5);
 }
 .sidebar.active { left: 0; }
 .sidebar a {
@@ -86,113 +87,111 @@ body::before {
 
 /* CONTEUDO PRINCIPAL */
 .main {
-  min-height: 100vh;
-  position: relative;
-  padding: 20px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 70px 20px 20px 20px;
 }
 
-/* BOTÃO LOCALIZAÇÃO 25% MENOR */
+/* BOTÃO LOCALIZAÇÃO COM MAPA */
 .btn-mapa {
   background: #d4a017;
   color: #000;
-  border-radius: 15px;
+  border-radius: 20px;
   text-decoration: none;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-  
-  position: absolute;
-  top: 75px; /* subiu um pouco */
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  width: 90%;
+  max-width: 340px;
   overflow: hidden;
-  width: 195px;
+  flex-shrink: 0;
 }
 .btn-mapa .titulo {
-  padding: 9px;
+  padding: 10px;
   font-weight: bold;
-  font-size: 13px;
+  font-size: 14px;
   text-align: center;
-  background: #d4a017;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
 }
 .btn-mapa .mapa-ilustracao {
   width: 100%;
-  height: 82px;
+  height: 100px;
   background-image: url('mapa.JPG');
   background-size: cover;
   background-position: center;
-  position: relative;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
+}
+
+/* TÍTULO NOVO */
+.titulo-avaliacoes {
+  color: #d4a017;
+  font-size: 20px;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: 1px;
+  flex-shrink: 0;
+}
+
+/* CARROSSEL DE AVALIAÇÃO - VOLTOU PRO TAMANHO PEQUENO */
+.carrossel-box {
+  width: 90%;
+  max-width: 340px;
+  height: 90px; /* VOLTOU PRO PEQUENO */
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.carrossel-track {
+  animation: girarAvaliacao 12s linear infinite;
+}
+@keyframes girarAvaliacao {
+ 0% { transform: translateY(0); }
+ 25% { transform: translateY(0); }
+ 33% { transform: translateY(-90px); }
+ 58% { transform: translateY(-90px); }
+ 66% { transform: translateY(-180px); }
+ 91% { transform: translateY(-180px); }
+ 100% { transform: translateY(-270px); }
+}
+.card-avaliacao {
+  background: rgba(22, 27, 34, 0.9);
+  border: 2px solid #d4a017;
+  border-radius: 12px;
+  padding: 10px; /* MENOR */
+  height: 80px; /* MENOR */
+  margin-bottom: 10px;
+}
+.card-avaliacao .estrelas { 
+  color: #d4a017; 
+  font-size: 14px; /* MENOR */
+  margin-bottom: 4px; 
+}
+.card-avaliacao p { 
+  font-size: 11px; /* MENOR */
+  line-height: 1.3; 
+  margin-bottom: 4px;
+}
+.card-avaliacao span { 
+  font-weight: bold; 
+  color: #d4a017; 
+  font-size: 10px; /* MENOR */
 }
 
 /* BOTÃO AGENDAR */
 .btn-agenda {
   background: #25D366;
   color: white;
-  padding: 12px 25px; /* menor */
-  border-radius: 15px;
+  padding: 14px 45px;
+  border-radius: 50px;
   text-decoration: none;
-  font-weight: bold;
-  font-size: 14px; /* menor */
-  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-  
-  position: absolute;
-  bottom: 40px; /* subiu um pouco */
-  left: 50%;
-  transform: translateX(-50%);
-  
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  line-height: 1.3;
-}
-
-/* SEÇÃO AVALIAÇÕES - NOVA */
-.avaliacoes {
-  padding: 15px 10px;
-  text-align: center;
-  margin-top: 190px; /* entre os 2 botões */
-}
-.avaliacoes h2 {
-  color: #d4a017;
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-.carrossel {
-  width: 90%;
-  max-width: 300px;
-  margin: 0 auto;
-  height: 110px; /* menor */
-  overflow: hidden;
-  position: relative;
-}
-.carrossel-track {
-  display: flex;
-  flex-direction: column; /* gira pra baixo */
-  animation: scrollDown 20s linear infinite; /* devagar */
-}
-@keyframes scrollDown {
- 0% { transform: translateY(0); }
- 100% { transform: translateY(-440px); } /* 4 cards x 110px */
-}
-.card-avaliacao {
-  background: rgba(22, 27, 34, 0.9);
-  border: 1px solid #d4a017;
-  border-radius: 10px;
-  padding: 10px;
-  margin-bottom: 10px;
-  height: 100px; /* menor */
-  text-align: left;
+  font-weight: 800;
+  font-size: 17px;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
   flex-shrink: 0;
+  margin-bottom: 10px;
 }
-.card-avaliacao .estrelas { color: #d4a017; font-size: 12px; margin-bottom: 4px; }
-.card-avaliacao p { font-size: 11px; line-height: 1.3; margin-bottom: 4px; }
-.card-avaliacao span { font-weight: bold; color: #d4a017; font-size: 10px; }
-
-/* Pausa ao tocar */
-.carrossel:hover .carrossel-track { animation-play-state: paused; }
 
 /* PAGINAS DA GALERIA */
 .page {
@@ -200,6 +199,8 @@ body::before {
   padding: 80px 20px 40px 20px;
   max-width: 900px;
   margin: 0 auto;
+  height: 100vh;
+  overflow-y: auto;
 }
 .page.active { display: block; }
 .page h2 { color: #d4a017; text-align: center; font-size: 28px; margin-bottom: 20px; }
@@ -249,49 +250,37 @@ body::before {
     <div class="mapa-ilustracao"></div>
   </a>
   
-  <a href="https://wa.me/5551984254783?text=Fala%20PH%2C%20Bora%20dar%20um%20trato%20nesse%20cabelo!" target="_blank" class="btn-agenda">AGENDAR<br>HORÁRIO</a>
+  <div class="titulo-avaliacoes">
+    NOSSAS AVALIAÇÕES
+  </div>
 
-  <!-- AVALIAÇÕES NOVAS -->
-  <section class="avaliacoes">
-    <h2>⭐ 5.0 no Google</h2>
-    <div class="carrossel">
-      <div class="carrossel-track">
-        
-        <div class="card-avaliacao">
-          <div class="estrelas">⭐</div>
-          <p>"Proprietário muito atencioso e educado. Lugar limpo e aconchegante. Indico de olhos fechados!"</p>
-          <span>- Edmilson Bittencourt</span>
-        </div>
-
-        <div class="card-avaliacao">
-          <div class="estrelas">⭐⭐⭐⭐⭐</div>
-          <p>"Melhor corte da lomba do pinheiro. Ambiente climatizado e ótima qualidade."</p>
-          <span>- Thierre Rodrigues</span>
-        </div>
-
-        <div class="card-avaliacao">
-          <div class="estrelas">⭐⭐⭐⭐⭐</div>
-          <p>"Ótima barbearia, atendimento muito bom"</p>
-          <span>- Hiago Oliveira</span>
-        </div>
-
-        <div class="card-avaliacao">
-          <div class="estrelas">⭐</div>
-          <p>"Excelente profissional"</p>
-          <span>- Jéferson Abreu</span>
-        </div>
-
-        <!-- Repete pra fazer loop infinito -->
-        <div class="card-avaliacao">
-          <div class="estrelas">⭐⭐⭐⭐⭐</div>
-          <p>"Proprietário muito atencioso e educado. Lugar limpo e aconchegante. Indico de olhos fechados!"</p>
-          <span>- Edmilson Bittencourt</span>
-        </div>
-
+  <!-- CARROSSEL -->
+  <div class="carrossel-box">
+    <div class="carrossel-track">
+      <div class="card-avaliacao">
+        <div class="estrelas">⭐⭐⭐⭐</div>
+        <p>"Proprietário muito atencioso. Lugar limpo e aconchegante."</p>
+        <span>- Edmilson Bittencourt</span>
+      </div>
+      <div class="card-avaliacao">
+        <div class="estrelas">⭐⭐⭐</div>
+        <p>"Melhor corte da lomba. Ambiente climatizado."</p>
+        <span>- Thierre Rodrigues</span>
+      </div>
+      <div class="card-avaliacao">
+        <div class="estrelas">⭐</div>
+        <p>"Ótima barbearia, atendimento muito bom"</p>
+        <span>- Hiago Oliveira</span>
+      </div>
+      <div class="card-avaliacao">
+        <div class="estrelas">⭐</div>
+        <p>"Excelente profissional"</p>
+        <span>- Jéferson Abreu</span>
       </div>
     </div>
-  </section>
-
+  </div>
+  
+  <a href="https://wa.me/5551984254783?text=Fala%20PH%2C%20Bora%20dar%20um%20trato%20nesse%20cabelo!" target="_blank" class="btn-agenda">AGENDAR</a>
 </div>
 
 <!-- GALERIA -->
@@ -299,7 +288,7 @@ body::before {
   <button class="voltar-btn" onclick="showPage('home')">← Voltar</button>
   <h2>Galeria - Cortes, Barba e Pinturas</h2>
   <div class="galeria-grid">
-    <p style="text-align:center; grid-column:1/-1;">Envia as fotos dos cortes do PH que eu te ensino a adicionar aqui</p>
+    <p style="text-align:center; grid-column:1/-1;">Envia as fotos dos cortes do PH</p>
   </div>
 </div>
 
@@ -308,7 +297,7 @@ body::before {
   <button class="voltar-btn" onclick="showPage('home')">← Voltar</button>
   <h2>Galeria Kids</h2>
   <div class="galeria-grid">
-    <p style="text-align:center; grid-column:1/-1;">Envia as fotos dos cortes kids que eu adiciono aqui</p>
+    <p style="text-align:center; grid-column:1/-1;">Envia as fotos dos cortes kids</p>
   </div>
 </div>
 
@@ -321,7 +310,6 @@ function showPage(pageId) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById(pageId).classList.add('active');
   document.getElementById('sidebar').classList.remove('active');
-  window.scrollTo(0, 0);
 }
 </script>
 
