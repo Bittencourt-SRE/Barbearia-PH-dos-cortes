@@ -105,30 +105,29 @@ body::before {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  width: 195px; /* 25% menor que 260px */
+  width: 195px;
 }
 .btn-mapa .titulo {
-  padding: 9px; /* proporcional */
+  padding: 9px;
   font-weight: bold;
-  font-size: 13px; /* proporcional */
+  font-size: 13px;
   text-align: center;
   background: #d4a017;
 }
 .btn-mapa .mapa-ilustracao {
   width: 100%;
-  height: 82px; /* 25% menor que 110px */
+  height: 82px;
   background-image: url('mapa.JPG');
   background-size: cover;
   background-position: center;
-  position: relative;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
 }
 
-/* NOVO: TÍTULO E CARROSSEL NO MEIO */
+/* CARROSSEL VERTICAL NO MEIO - AJUSTADO */
 .titulo-avaliacoes {
   position: absolute;
-  top: 45%;
+  top: 48%; /* +3% PRA BAIXO */
   left: 50%;
   transform: translate(-50%, -50%);
   color: #d4a017;
@@ -138,39 +137,35 @@ body::before {
   letter-spacing: 1px;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
   width: 100%;
-  margin-top: -50px; /* sobe o título pra cima do carrossel */
+  margin-top: -55px; /* sobe o título */
 }
 
 .carrossel-container {
   position: absolute;
-  top: 45%;
+  top: 48%; /* +3% PRA BAIXO */
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 85%;
-  max-width: 320px;
-  height: 80px;
-  overflow-x: auto; /* PERMITE GIRAR COM O DEDO */
-  overflow-y: hidden;
-  scroll-snap-type: x mandatory; /* TRAVA NO CARD */
+  width: 75%; /* -10% DAS LATERAIS */
+  max-width: 290px;
+  height: 88px; /* +10% DE ALTURA */
+  overflow-x: hidden;
+  overflow-y: auto; /* AGORA ROLA PRA CIMA/BAIXO */
+  scroll-snap-type: y mandatory; /* TRAVA NA VERTICAL */
   display: flex;
-  gap: 15px;
+  flex-direction: column; /* MUDOU PRA COLUNA */
+  gap: 10px;
   padding: 5px 0;
-  scrollbar-width: none; /* tira barra de rolagem */
+  scrollbar-width: none;
 }
 .carrossel-container::-webkit-scrollbar { display: none; }
 
-.carrossel-track {
-  display: flex;
-  gap: 15px;
-}
 .card-avaliacao {
   background: rgba(20, 20, 20, 0.9);
   border: 2px solid #d4a017;
   border-radius: 15px;
   padding: 10px 12px;
   width: 100%;
-  min-width: 100%; /* CADA CARD OCUPA 100% DA LARGURA */
-  height: 70px;
+  min-height: 78px; /* +10% DE ALTURA */
   scroll-snap-align: center;
   flex-shrink: 0;
 }
@@ -269,30 +264,28 @@ body::before {
     <div class="mapa-ilustracao"></div>
   </a>
 
-  <!-- NOVO: TITULO + CARROSSEL NO MEIO -->
+  <!-- TITULO + CARROSSEL VERTICAL -->
   <div class="titulo-avaliacoes">NOSSAS AVALIAÇÕES</div>
   <div class="carrossel-container" id="carrossel">
-    <div class="carrossel-track">
-      <div class="card-avaliacao">
-        <div class="estrelas">⭐</div>
-        <p>"Melhor corte da lomba. Ambiente climatizado."</p>
-        <span>- Thierre Rodrigues</span>
-      </div>
-      <div class="card-avaliacao">
-        <div class="estrelas">⭐⭐⭐</div>
-        <p>"Proprietário muito atencioso. Lugar limpo."</p>
-        <span>- Edmilson Bittencourt</span>
-      </div>
-      <div class="card-avaliacao">
-        <div class="estrelas">⭐⭐⭐⭐⭐</div>
-        <p>"Ótima barbearia, atendimento muito bom"</p>
-        <span>- Hiago Oliveira</span>
-      </div>
-      <div class="card-avaliacao">
-        <div class="estrelas">⭐⭐⭐⭐</div>
-        <p>"Excelente profissional"</p>
-        <span>- Jéferson Abreu</span>
-      </div>
+    <div class="card-avaliacao">
+      <div class="estrelas">⭐</div>
+      <p>"Melhor corte da lomba. Ambiente climatizado."</p>
+      <span>- Thierre Rodrigues</span>
+    </div>
+    <div class="card-avaliacao">
+      <div class="estrelas">⭐⭐⭐</div>
+      <p>"Proprietário muito atencioso. Lugar limpo."</p>
+      <span>- Edmilson Bittencourt</span>
+    </div>
+    <div class="card-avaliacao">
+      <div class="estrelas">⭐⭐⭐⭐⭐</div>
+      <p>"Ótima barbearia, atendimento muito bom"</p>
+      <span>- Hiago Oliveira</span>
+    </div>
+    <div class="card-avaliacao">
+      <div class="estrelas">⭐</div>
+      <p>"Excelente profissional"</p>
+      <span>- Jéferson Abreu</span>
     </div>
   </div>
   
@@ -329,26 +322,25 @@ function showPage(pageId) {
   window.scrollTo(0, 0);
 }
 
-/* NOVO: AUTO SCROLL DO CARROSSEL */
+/* AUTO SCROLL VERTICAL */
 const carrossel = document.getElementById('carrossel');
 let scrollAmount = 0;
 let autoScroll = setInterval(() => {
-  const cardWidth = carrossel.querySelector('.card-avaliacao').offsetWidth + 15; // 15 = gap
-  scrollAmount += cardWidth;
+  const cardHeight = carrossel.querySelector('.card-avaliacao').offsetHeight + 10; // 10 = gap
+  scrollAmount += cardHeight;
   
-  if(scrollAmount >= carrossel.scrollWidth - carrossel.clientWidth) {
+  if(scrollAmount >= carrossel.scrollHeight - carrossel.clientHeight) {
     scrollAmount = 0; // volta pro inicio
   }
   
   carrossel.scrollTo({
-    left: scrollAmount,
+    top: scrollAmount,
     behavior: 'smooth'
   });
-}, 3000); // 3 segundos pra trocar. Deixa mais lento se quiser
+}, 3000);
 
-// para o auto scroll quando o usuário mexe com o dedo
+// para quando mexer com o dedo
 carrossel.addEventListener('touchstart', () => clearInterval(autoScroll));
-carrossel.addEventListener('mousedown', () => clearInterval(autoScroll));
 </script>
 
 </body>
