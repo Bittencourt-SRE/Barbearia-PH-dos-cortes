@@ -127,7 +127,7 @@ body::before {
 /* CARROSSEL VERTICAL NO MEIO - AJUSTADO */
 .titulo-avaliacoes {
   position: absolute;
-  top: 48%; /* +3% PRA BAIXO */
+  top: 48%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: #d4a017;
@@ -137,22 +137,22 @@ body::before {
   letter-spacing: 1px;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
   width: 100%;
-  margin-top: -55px; /* sobe o título */
+  margin-top: -55px;
 }
 
 .carrossel-container {
   position: absolute;
-  top: 48%; /* +3% PRA BAIXO */
+  top: 48%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 75%; /* -10% DAS LATERAIS */
+  width: 75%;
   max-width: 290px;
-  height: 88px; /* +10% DE ALTURA */
+  height: 88px;
   overflow-x: hidden;
-  overflow-y: auto; /* AGORA ROLA PRA CIMA/BAIXO */
-  scroll-snap-type: y mandatory; /* TRAVA NA VERTICAL */
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
   display: flex;
-  flex-direction: column; /* MUDOU PRA COLUNA */
+  flex-direction: column;
   gap: 10px;
   padding: 5px 0;
   scrollbar-width: none;
@@ -165,7 +165,7 @@ body::before {
   border-radius: 15px;
   padding: 10px 12px;
   width: 100%;
-  min-height: 78px; /* +10% DE ALTURA */
+  min-height: 78px;
   scroll-snap-align: center;
   flex-shrink: 0;
 }
@@ -267,26 +267,55 @@ body::before {
   <!-- TITULO + CARROSSEL VERTICAL -->
   <div class="titulo-avaliacoes">NOSSAS AVALIAÇÕES</div>
   <div class="carrossel-container" id="carrossel">
+    
     <div class="card-avaliacao">
       <div class="estrelas">⭐</div>
-      <p>"Melhor corte da lomba. Ambiente climatizado."</p>
-      <span>- Thierre Rodrigues</span>
+      <p>"Ótimo atendimento 🙏🙏"</p>
+      <span>- Wellinton Adona</span>
     </div>
+
     <div class="card-avaliacao">
-      <div class="estrelas">⭐⭐⭐</div>
-      <p>"Proprietário muito atencioso. Lugar limpo."</p>
-      <span>- Edmilson Bittencourt</span>
-    </div>
-    <div class="card-avaliacao">
-      <div class="estrelas">⭐⭐⭐⭐⭐</div>
-      <p>"Ótima barbearia, atendimento muito bom"</p>
+      <div class="estrelas">⭐</div>
+      <p>"Ótima barbearia atendimento muito bom"</p>
       <span>- Hiago Oliveira</span>
     </div>
+
+    <div class="card-avaliacao">
+      <div class="estrelas">⭐</div>
+      <p>"Recomendo MUITO!"</p>
+      <span>- Thauane Freitas</span>
+    </div>
+
     <div class="card-avaliacao">
       <div class="estrelas">⭐</div>
       <p>"Excelente profissional"</p>
       <span>- Jéferson Abreu</span>
     </div>
+
+    <div class="card-avaliacao">
+      <div class="estrelas">⭐</div>
+      <p>"Maravilha"</p>
+      <span>- Christiane Junqueira</span>
+    </div>
+
+    <div class="card-avaliacao">
+      <div class="estrelas">⭐</div>
+      <p>"Serviços: Cortes infantis"</p>
+      <span>- Bianca Batista</span>
+    </div>
+
+    <div class="card-avaliacao">
+      <div class="estrelas">⭐⭐⭐⭐⭐</div>
+      <p>"Proprietário muito atencioso e educado, Lugar limpo, Organizado e aconchegante, Indico de olhos fechados a todos meus amigos!"</p>
+      <span>- Edmilson Bittencourt</span>
+    </div>
+
+    <div class="card-avaliacao">
+      <div class="estrelas">⭐</div>
+      <p>"Melhor corte da lomba do pinheiro ambiente climatizado bom atendimento e ótima qualidade super recomendo"</p>
+      <span>- Thierre Rodrigues Da Conceição</span>
+    </div>
+
   </div>
   
   <a href="https://wa.me/5551984254783?text=Fala%20PH%2C%20Bora%20dar%20um%20trato%20nesse%20cabelo!" target="_blank" class="btn-agenda">AGENDAR<br>HORÁRIO</a>
@@ -326,11 +355,11 @@ function showPage(pageId) {
 const carrossel = document.getElementById('carrossel');
 let scrollAmount = 0;
 let autoScroll = setInterval(() => {
-  const cardHeight = carrossel.querySelector('.card-avaliacao').offsetHeight + 10; // 10 = gap
+  const cardHeight = carrossel.querySelector('.card-avaliacao').offsetHeight + 10;
   scrollAmount += cardHeight;
   
   if(scrollAmount >= carrossel.scrollHeight - carrossel.clientHeight) {
-    scrollAmount = 0; // volta pro inicio
+    scrollAmount = 0;
   }
   
   carrossel.scrollTo({
@@ -339,7 +368,6 @@ let autoScroll = setInterval(() => {
   });
 }, 3000);
 
-// para quando mexer com o dedo
 carrossel.addEventListener('touchstart', () => clearInterval(autoScroll));
 </script>
 
