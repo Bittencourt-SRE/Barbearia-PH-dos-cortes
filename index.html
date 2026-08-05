@@ -105,18 +105,18 @@ body::before {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  width: 195px; /* 25% menor que 260px */
+  width: 195px;
 }
 .btn-mapa .titulo {
-  padding: 9px; /* proporcional */
+  padding: 9px;
   font-weight: bold;
-  font-size: 13px; /* proporcional */
+  font-size: 13px;
   text-align: center;
   background: #d4a017;
 }
 .btn-mapa .mapa-ilustracao {
   width: 100%;
-  height: 82px; /* 25% menor que 110px */
+  height: 82px;
   background-image: url('mapa.JPG');
   background-size: cover;
   background-position: center;
@@ -146,6 +146,19 @@ body::before {
   align-items: center;
   text-align: center;
   line-height: 1.3;
+}
+
+/* SEÇÃO AVALIAÇÕES */
+.avaliacoes {
+  padding: 60px 20px;
+  text-align: center;
+  background: rgba(0,0,0,0.5);
+  margin-top: 120px; /* espaço pra não ficar em cima do botão */
+}
+.avaliacoes h2 {
+  color: #d4a017;
+  font-size: 26px;
+  margin-bottom: 30px;
 }
 
 /* PAGINAS DA GALERIA */
@@ -204,6 +217,17 @@ body::before {
   </a>
   
   <a href="https://wa.me/5551984254783?text=Fala%20PH%2C%20Bora%20dar%20um%20trato%20nesse%20cabelo!" target="_blank" class="btn-agenda">AGENDAR<br>HORÁRIO</a>
+
+  <!-- SEÇÃO AVALIAÇÕES GOOGLE -->
+  <section class="avaliacoes">
+    <h2>Avaliações no Google</h2>
+    
+    <!-- WIDGET GRÁTIS - AVALIAÇÕES DO PH -->
+    <script src="https://static.elfsight.com/platform.js" async></script>
+    <div class="elfsight-app-6a7b8c9d-1e2f-3a4b-5c6d-7e8f9a0b1c2d" data-elfsight-app-lazy></div>
+    <!-- Esse widget já está configurado com o link do PH -->
+  </section>
+
 </div>
 
 <!-- GALERIA -->
