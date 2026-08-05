@@ -8,22 +8,23 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html, body { 
   height: 100vh;
-  overflow: hidden;
+  overflow: hidden; /* TRAVA A TELA */
 }
 body { 
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial; 
   color: #fff; 
   background-image: url('IMG_5014.png');
-  background-size: cover;
+  background-size: contain; /* MUDEI: CONTAIN PRA DIMINUIR E CABER */
   background-position: center top;
   background-repeat: no-repeat;
+  background-color: #0a0a0a; /* FUNDO PRETO PRA COMPLETAR */
 }
 body::before {
   content: "";
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(0, 0, 0, 0.5);
   z-index: -1;
 }
 
@@ -48,7 +49,7 @@ body::before {
   font-size: 22px;
   font-weight: 800;
   color: #d4a017;
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.9);
   text-align: center;
   flex: 1;
   letter-spacing: 2px;
@@ -85,61 +86,58 @@ body::before {
   cursor: pointer;
 }
 
-/* CONTEUDO PRINCIPAL */
+/* CONTEUDO PRINCIPAL - DISTRIBUI NA TELA */
 .main {
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  padding: 70px 20px 20px 20px;
+  justify-content: space-between; /* ESPAÇA TUDO */
+  padding: 60px 15px 25px 15px;
 }
 
-/* BOTÃO LOCALIZAÇÃO COM MAPA */
-.btn-mapa {
-  background: #d4a017;
-  color: #000;
-  border-radius: 20px;
-  text-decoration: none;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-  width: 90%;
-  max-width: 340px;
+/* MAPA - LARGURA TOTAL */
+.mapa-box {
+  width: 100%;
+  border-radius: 0;
   overflow: hidden;
   flex-shrink: 0;
 }
-.btn-mapa .titulo {
-  padding: 10px;
+.mapa-titulo {
+  color: #000;
   font-weight: bold;
   font-size: 14px;
   text-align: center;
+  padding: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 5px;
 }
-.btn-mapa .mapa-ilustracao {
+.mapa-imagem {
   width: 100%;
-  height: 100px;
+  height: 110px;
   background-image: url('mapa.JPG');
   background-size: cover;
   background-position: center;
 }
 
-/* TÍTULO NOVO */
+/* TÍTULO AVALIAÇÕES */
 .titulo-avaliacoes {
   color: #d4a017;
   font-size: 20px;
   font-weight: 800;
   text-align: center;
   letter-spacing: 1px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
   flex-shrink: 0;
 }
 
-/* CARROSSEL DE AVALIAÇÃO - VOLTOU PRO TAMANHO PEQUENO */
+/* CARROSSEL */
 .carrossel-box {
-  width: 90%;
-  max-width: 340px;
-  height: 90px; /* VOLTOU PRO PEQUENO */
+  width: 95%;
+  max-width: 380px;
+  height: 90px;
   overflow: hidden;
   flex-shrink: 0;
 }
@@ -148,49 +146,51 @@ body::before {
 }
 @keyframes girarAvaliacao {
  0% { transform: translateY(0); }
- 25% { transform: translateY(0); }
+ 30% { transform: translateY(0); }
  33% { transform: translateY(-90px); }
- 58% { transform: translateY(-90px); }
+ 63% { transform: translateY(-90px); }
  66% { transform: translateY(-180px); }
- 91% { transform: translateY(-180px); }
+ 96% { transform: translateY(-180px); }
  100% { transform: translateY(-270px); }
 }
 .card-avaliacao {
-  background: rgba(22, 27, 34, 0.9);
+  background: rgba(20, 20, 20, 0.85);
   border: 2px solid #d4a017;
-  border-radius: 12px;
-  padding: 10px; /* MENOR */
-  height: 80px; /* MENOR */
+  border-radius: 15px;
+  padding: 12px 15px;
+  height: 80px;
   margin-bottom: 10px;
 }
 .card-avaliacao .estrelas { 
-  color: #d4a017; 
-  font-size: 14px; /* MENOR */
-  margin-bottom: 4px; 
+  color: #ffd700; 
+  font-size: 16px; 
+  margin-bottom: 5px; 
 }
 .card-avaliacao p { 
-  font-size: 11px; /* MENOR */
+  font-size: 12px; 
   line-height: 1.3; 
+  color: #fff;
   margin-bottom: 4px;
 }
 .card-avaliacao span { 
   font-weight: bold; 
   color: #d4a017; 
-  font-size: 10px; /* MENOR */
+  font-size: 11px; 
 }
 
-/* BOTÃO AGENDAR */
+/* BOTÃO AGENDAR - LÁ EMBAIXO MESMO */
 .btn-agenda {
-  background: #25D366;
+  background: #22c55e;
   color: white;
-  padding: 14px 45px;
+  padding: 16px 70px;
   border-radius: 50px;
   text-decoration: none;
   font-weight: 800;
-  font-size: 17px;
-  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+  font-size: 20px;
+  box-shadow: 0 0 25px rgba(34, 197, 94, 0.7);
+  letter-spacing: 1px;
   flex-shrink: 0;
-  margin-bottom: 10px;
+  margin-bottom: 5px; /* COLADO NO FINAL */
 }
 
 /* PAGINAS DA GALERIA */
@@ -245,10 +245,10 @@ body::before {
 <!-- TELA PRINCIPAL -->
 <div id="home" class="main page active">
   
-  <a href="https://maps.app.goo.gl/i2s3XrPSPhoCFsY17" target="_blank" class="btn-mapa">
-    <div class="titulo">📍 NOSSO ENDEREÇO</div>
-    <div class="mapa-ilustracao"></div>
-  </a>
+  <div class="mapa-box">
+    <div class="mapa-titulo">📍 NOSSO ENDEREÇO</div>
+    <div class="mapa-imagem"></div>
+  </div>
   
   <div class="titulo-avaliacoes">
     NOSSAS AVALIAÇÕES
@@ -258,14 +258,14 @@ body::before {
   <div class="carrossel-box">
     <div class="carrossel-track">
       <div class="card-avaliacao">
-        <div class="estrelas">⭐⭐⭐⭐</div>
-        <p>"Proprietário muito atencioso. Lugar limpo e aconchegante."</p>
-        <span>- Edmilson Bittencourt</span>
-      </div>
-      <div class="card-avaliacao">
         <div class="estrelas">⭐⭐⭐</div>
         <p>"Melhor corte da lomba. Ambiente climatizado."</p>
         <span>- Thierre Rodrigues</span>
+      </div>
+      <div class="card-avaliacao">
+        <div class="estrelas">⭐</div>
+        <p>"Proprietário muito atencioso. Lugar limpo e aconchegante."</p>
+        <span>- Edmilson Bittencourt</span>
       </div>
       <div class="card-avaliacao">
         <div class="estrelas">⭐</div>
