@@ -2,18 +2,22 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>PH DOS CORTES</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { 
+  height: 100vh;
+  overflow: hidden; /* TRAVA A TELA */
+}
 body { 
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial; 
   color: #fff; 
   background-image: url('IMG_5014.png');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  overflow-x: hidden;
+  background-size: contain; /* DIMINUI PRA CABER */
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-color: #0a0a0a;
 }
 body::before {
   content: "";
@@ -45,7 +49,7 @@ body::before {
   font-size: 28px;
   font-weight: 800;
   color: #d4a017;
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+  text-shadow: 2px 2px 8px rgba(0,0,0.8);
   text-align: center;
   flex: 1;
   letter-spacing: 2px;
@@ -85,9 +89,13 @@ body::before {
 
 /* CONTEUDO PRINCIPAL */
 .main {
-  min-height: 100vh;
+  height: 100vh;
   position: relative;
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 90px 20px 30px 20px;
 }
 
 /* BOTÃO LOCALIZAÇÃO 25% MENOR */
@@ -97,20 +105,16 @@ body::before {
   border-radius: 15px;
   text-decoration: none;
   box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-  
-  position: absolute;
-  top: 100px;
-  left: 50%;
-  transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   overflow: hidden;
   width: 195px; /* 25% menor que 260px */
+  flex-shrink: 0;
 }
 .btn-mapa .titulo {
-  padding: 9px; /* proporcional */
+  padding: 9px;
   font-weight: bold;
-  font-size: 13px; /* proporcional */
+  font-size: 13px;
   text-align: center;
   background: #d4a017;
 }
@@ -120,9 +124,64 @@ body::before {
   background-image: url('mapa.JPG');
   background-size: cover;
   background-position: center;
-  position: relative;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
+}
+
+/* TÍTULO NOSSAS AVALIAÇÕES */
+.titulo-avaliacoes {
+  color: #d4a017;
+  font-size: 20px;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+  flex-shrink: 0;
+}
+
+/* CARROSSEL DE AVALIAÇÃO */
+.carrossel-box {
+  width: 90%;
+  max-width: 320px;
+  height: 80px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.carrossel-track {
+  animation: girarAvaliacao 12s linear infinite;
+}
+@keyframes girarAvaliacao {
+ 0% { transform: translateY(0); }
+ 30% { transform: translateY(0); }
+ 33% { transform: translateY(-80px); }
+ 63% { transform: translateY(-80px); }
+ 66% { transform: translateY(-160px); }
+ 96% { transform: translateY(-160px); }
+ 100% { transform: translateY(-240px); }
+}
+.card-avaliacao {
+  background: rgba(20, 20, 20, 0.9);
+  border: 2px solid #d4a017;
+  border-radius: 15px;
+  padding: 10px 12px;
+  height: 70px;
+  margin-bottom: 10px;
+}
+.card-avaliacao .estrelas { 
+  color: #ffd700; 
+  font-size: 14px; 
+  margin-bottom: 4px; 
+}
+.card-avaliacao p { 
+  font-size: 11px; 
+  line-height: 1.3; 
+  color: #fff;
+  margin-bottom: 3px;
+}
+.card-avaliacao span { 
+  font-weight: bold; 
+  color: #d4a017; 
+  font-size: 10px; 
 }
 
 /* BOTÃO AGENDAR */
@@ -135,17 +194,13 @@ body::before {
   font-weight: bold;
   font-size: 16px;
   box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-  
-  position: absolute;
-  bottom: 50px;
-  left: 50%;
-  transform: translateX(-50%);
-  
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   line-height: 1.3;
+  flex-shrink: 0;
+  margin-bottom: 10px;
 }
 
 /* PAGINAS DA GALERIA */
@@ -154,6 +209,8 @@ body::before {
   padding: 80px 20px 40px 20px;
   max-width: 900px;
   margin: 0 auto;
+  height: 100vh;
+  overflow-y: auto;
 }
 .page.active { display: block; }
 .page h2 { color: #d4a017; text-align: center; font-size: 28px; margin-bottom: 20px; }
@@ -202,6 +259,36 @@ body::before {
     <div class="titulo">📍 NOSSO ENDEREÇO</div>
     <div class="mapa-ilustracao"></div>
   </a>
+  
+  <div class="titulo-avaliacoes">
+    NOSSAS AVALIAÇÕES
+  </div>
+
+  <!-- CARROSSEL -->
+  <div class="carrossel-box">
+    <div class="carrossel-track">
+      <div class="card-avaliacao">
+        <div class="estrelas">⭐</div>
+        <p>"Melhor corte da lomba. Ambiente climatizado."</p>
+        <span>- Thierre Rodrigues</span>
+      </div>
+      <div class="card-avaliacao">
+        <div class="estrelas">⭐</div>
+        <p>"Proprietário muito atencioso. Lugar limpo."</p>
+        <span>- Edmilson Bittencourt</span>
+      </div>
+      <div class="card-avaliacao">
+        <div class="estrelas">⭐</div>
+        <p>"Ótima barbearia, atendimento muito bom"</p>
+        <span>- Hiago Oliveira</span>
+      </div>
+      <div class="card-avaliacao">
+        <div class="estrelas">⭐</div>
+        <p>"Excelente profissional"</p>
+        <span>- Jéferson Abreu</span>
+      </div>
+    </div>
+  </div>
   
   <a href="https://wa.me/5551984254783?text=Fala%20PH%2C%20Bora%20dar%20um%20trato%20nesse%20cabelo!" target="_blank" class="btn-agenda">AGENDAR<br>HORÁRIO</a>
 </div>
