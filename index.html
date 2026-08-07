@@ -94,10 +94,9 @@ body::before {
 .card-endereco {
   background: #fff;
   border-radius: 10px;
-  padding: 10px; /* era 16px */
+  padding: 10px;
   width: 85%;
   max-width: 320px;
-  
   position: absolute;
   top: 48%;
   left: 50%;
@@ -112,33 +111,33 @@ body::before {
   gap: 6px;
   color: #000;
   font-weight: 700;
-  font-size: 13px; /* era 15px */
-  margin-bottom: 8px; /* era 12px */
+  font-size: 13px;
+  margin-bottom: 8px;
 }
 .card-endereco .titulo svg {
-  width: 15px; /* era 18px */
+  width: 15px;
   height: 15px;
   fill: #d4a017;
 }
 .card-endereco .endereco {
   background: #f5f5f5;
-  padding: 8px; /* era 12px */
+  padding: 8px;
   border-radius: 6px;
 }
 .card-endereco .endereco strong {
   color: #000;
-  font-size: 12px; /* era 14px */
+  font-size: 12px;
   display: block;
 }
 .card-endereco .endereco span {
   color: #666;
-  font-size: 11px; /* era 13px */
+  font-size: 11px;
 }
 .card-endereco .ver-mapa {
   color: #d4a017;
-  font-size: 11px; /* era 13px */
+  font-size: 11px;
   font-weight: 600;
-  margin-top: 6px; /* era 8px */
+  margin-top: 6px;
   display: inline-block;
 }
 
@@ -259,6 +258,7 @@ body::before {
   width: 100%;
   border-radius: 10px;
   border: 2px solid #d4a017;
+  cursor: pointer;
 }
 .voltar-btn {
   background: #30363d;
@@ -291,61 +291,18 @@ body::before {
 <!-- TELA PRINCIPAL -->
 <div id="home" class="main page active">
   
-  <!-- AVALIAÇÕES AGORA AQUI EM CIMA -->
   <div class="titulo-avaliacoes">NOSSAS AVALIAÇÕES</div>
   <div class="carrossel-container" id="carrossel">
-    
-    <div class="card-avaliacao">
-      <div class="estrelas">⭐</div>
-      <p>"Ótimo atendimento 🙏🙏"</p>
-      <span>- Wellinton Adona</span>
-    </div>
-
-    <div class="card-avaliacao">
-      <div class="estrelas">⭐</div>
-      <p>"Ótima barbearia atendimento muito bom"</p>
-      <span>- Hiago Oliveira</span>
-    </div>
-
-    <div class="card-avaliacao">
-      <div class="estrelas">⭐</div>
-      <p>"Recomendo MUITO!"</p>
-      <span>- Thauane Freitas</span>
-    </div>
-
-    <div class="card-avaliacao">
-      <div class="estrelas">⭐</div>
-      <p>"Excelente profissional"</p>
-      <span>- Jéferson Abreu</span>
-    </div>
-
-    <div class="card-avaliacao">
-      <div class="estrelas">⭐</div>
-      <p>"Maravilha"</p>
-      <span>- Christiane Junqueira</span>
-    </div>
-
-    <div class="card-avaliacao">
-      <div class="estrelas">⭐</div>
-      <p>"Serviços: Cortes infantis"</p>
-      <span>- Bianca Batista</span>
-    </div>
-
-    <div class="card-avaliacao">
-      <div class="estrelas">⭐</div>
-      <p>"Proprietário muito atencioso e educado, Lugar limpo, Organizado e aconchegante, Indico de olhos fechados a todos meus amigos!"</p>
-      <span>- Edmilson Bittencourt</span>
-    </div>
-
-    <div class="card-avaliacao">
-      <div class="estrelas">⭐</div>
-      <p>"Melhor corte da lomba do pinheiro ambiente climatizado bom atendimento e ótima qualidade super recomendo"</p>
-      <span>- Thierre Rodrigues Da Conceição</span>
-    </div>
-
+    <div class="card-avaliacao"><div class="estrelas">⭐</div><p>"Ótimo atendimento 🙏🙏"</p><span>- Wellinton Adona</span></div>
+    <div class="card-avaliacao"><div class="estrelas">⭐</div><p>"Ótima barbearia atendimento muito bom"</p><span>- Hiago Oliveira</span></div>
+    <div class="card-avaliacao"><div class="estrelas">⭐</div><p>"Recomendo MUITO!"</p><span>- Thauane Freitas</span></div>
+    <div class="card-avaliacao"><div class="estrelas">⭐</div><p>"Excelente profissional"</p><span>- Jéferson Abreu</span></div>
+    <div class="card-avaliacao"><div class="estrelas">⭐</div><p>"Maravilha"</p><span>- Christiane Junqueira</span></div>
+    <div class="card-avaliacao"><div class="estrelas">⭐</div><p>"Serviços: Cortes infantis"</p><span>- Bianca Batista</span></div>
+    <div class="card-avaliacao"><div class="estrelas">⭐</div><p>"Proprietário muito atencioso e educado, Lugar limpo, Organizado e aconchegante, Indico de olhos fechados a todos meus amigos!"</p><span>- Edmilson Bittencourt</span></div>
+    <div class="card-avaliacao"><div class="estrelas">⭐</div><p>"Melhor corte da lomba do pinheiro ambiente climatizado bom atendimento e ótima qualidade super recomendo"</p><span>- Thierre Rodrigues Da Conceição</span></div>
   </div>
 
-  <!-- ENDEREÇO 35% MENOR -->
   <a href="https://maps.app.goo.gl/i2s3XrPSPhoCFsY17" target="_blank" class="card-endereco">
     <div class="titulo">
       <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
@@ -358,39 +315,30 @@ body::before {
     </div>
   </a>
   
-  <!-- BOTÕES WHATSAPP + INSTAGRAM -->
   <div class="botoes-redes">
     <a href="https://wa.me/5551984254783?text=Fala%20PH%2C%20Bora%20dar%20um%20trato%20nesse%20cabelo!" target="_blank" class="btn-whatsapp">
       <svg width="20" height="20" viewBox="0 0 32 32" fill="white"><path d="M16 2C8.268 2 2 8.268 2 16c0 2.666.736 5.162 2.015 7.29L2 30l6.89-1.806A14.005 14.005 0 0 0 16 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm0 25.714c-2.274 0-4.474-.61-6.41-1.765l-.46-.275-4.086 1.07 1.093-3.975-.3-.484A11.432 11.432 0 0 1 4.286 16c0-6.45 5.264-11.714 11.714-11.714S27.714 9.55 27.714 16 22.45 27.714 16 27.714zm6.5-8.688c-.356-.178-2.1-1.036-2.425-1.154-.325-.118-.562-.178-.8.178-.237.356-.92 1.154-1.128 1.39-.208.237-.416.267-.772.089-.356-.178-1.5-.553-2.858-1.764-1.057-.942-1.77-2.107-1.978-2.463-.208-.356-.022-.55.156-.727.16-.16.356-.416.534-.623.178-.208.237-.356.356-.593.118-.237.06-.444-.03-.623-.09-.178-.8-1.926-1.095-2.64-.288-.692-.58-.597-.8-.608-.208-.01-.447-.01-.687-.01-.237 0-.623.089-.95.444-.325.356-1.243 1.215-1.243 2.965s1.273 3.44 1.45 3.68c.178.237 2.506 3.826 6.07 5.37.85.367 1.513.587 2.03.75.853.27 1.63.232 2.244.14.685-.102 2.1-.858 2.396-1.687.296-.828.296-1.538.207-1.687-.09-.148-.325-.237-.68-.415z"/></svg>
       WhatsApp
     </a>
-
     <a href="https://www.instagram.com/barbearia_phdoscorte?igsh=OXhoam5heXNtZDZt" target="_blank" class="btn-instagram">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
-        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-      </svg>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
       Instagram
     </a>
   </div>
-
 </div>
 
 <!-- GALERIA -->
 <div id="galeria" class="page">
   <button class="voltar-btn" onclick="showPage('home')">← Voltar</button>
   <h2>Galeria - Cortes, Barba e Pinturas</h2>
-  <div class="galeria-grid">
-    <p style="text-align:center; grid-column:1/-1;">Envia as fotos dos cortes do PH que eu te ensino a adicionar aqui</p>
-  </div>
+  <div class="galeria-grid" id="galeria-cortes"></div>
 </div>
 
 <!-- GALERIA KIDS -->
 <div id="galeria-kids" class="page">
   <button class="voltar-btn" onclick="showPage('home')">← Voltar</button>
   <h2>Galeria Kids</h2>
-  <div class="galeria-grid">
-    <p style="text-align:center; grid-column:1/-1;">Envia as fotos dos cortes kids que eu adiciono aqui</p>
-  </div>
+  <div class="galeria-grid" id="galeria-kids-grid"></div>
 </div>
 
 <script>
@@ -411,18 +359,61 @@ let scrollAmount = 0;
 let autoScroll = setInterval(() => {
   const cardHeight = carrossel.querySelector('.card-avaliacao').offsetHeight + 10;
   scrollAmount += cardHeight;
-  
   if(scrollAmount >= carrossel.scrollHeight - carrossel.clientHeight) {
     scrollAmount = 0;
   }
-  
-  carrossel.scrollTo({
-    top: scrollAmount,
-    behavior: 'smooth'
-  });
+  carrossel.scrollTo({ top: scrollAmount, behavior: 'smooth' });
 }, 4000);
-
 carrossel.addEventListener('touchstart', () => clearInterval(autoScroll));
+
+/* ===== NOVO: CARREGAR FOTOS DA PLANILHA ===== */
+const PLANILHA_CSV = "https://docs.google.com/spreadsheets/d/11IBAr8G6ywjP1nXRHnCSMf0owRMfswyyuWIoWE_8B-0/export?format=csv";
+
+function getDriveImageUrl(id) {
+  return `https://drive.google.com/uc?export=view&id=${id}`;
+}
+
+function extractDriveId(url) {
+  const match = url.match(/\/d\/(.*?)\//);
+  return match ? match[1] : url;
+}
+
+async function carregarFotos() {
+  try {
+    const res = await fetch(PLANILHA_CSV);
+    const data = await res.text();
+    const linhas = data.split('\n').slice(1); // pula cabeçalho
+    
+    const galeriaCortes = document.getElementById('galeria-cortes');
+    const galeriaKids = document.getElementById('galeria-kids-grid');
+    
+    galeriaCortes.innerHTML = '';
+    galeriaKids.innerHTML = '';
+
+    linhas.forEach(linha => {
+      const [link, categoria] = linha.split(',');
+      if(!link || !categoria) return;
+      
+      const id = extractDriveId(link.trim());
+      const imgUrl = getDriveImageUrl(id);
+      const img = `<img src="${imgUrl}" loading="lazy">`;
+      
+      if(categoria.trim().toLowerCase() === 'kids') {
+        galeriaKids.innerHTML += img;
+      } else {
+        galeriaCortes.innerHTML += img;
+      }
+    });
+
+    if(galeriaCortes.innerHTML === '') galeriaCortes.innerHTML = '<p style="text-align:center; grid-column:1/-1; color:#ccc;">Adicione fotos na planilha com categoria "corte"</p>';
+    if(galeriaKids.innerHTML === '') galeriaKids.innerHTML = '<p style="text-align:center; grid-column:1/-1; color:#ccc;">Adicione fotos na planilha com categoria "kids"</p>';
+
+  } catch(e) {
+    console.log("Erro ao carregar planilha:", e);
+  }
+}
+
+carregarFotos();
 </script>
 
 </body>
