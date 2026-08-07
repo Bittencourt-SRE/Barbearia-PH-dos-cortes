@@ -90,38 +90,56 @@ body::before {
   padding: 20px;
 }
 
-/* BOTÃO LOCALIZAÇÃO 25% MENOR - AGORA NO MEIO */
-.btn-mapa {
-  background: #d4a017;
-  color: #000;
-  border-radius: 15px;
-  text-decoration: none;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+/* CARD ENDEREÇO NOVO - ESTILO SOFISTICADO */
+.card-endereco {
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  width: 85%;
+  max-width: 320px;
   
   position: absolute;
   top: 48%;
   left: 50%;
   transform: translate(-50%, -50%);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  text-decoration: none;
+  display: block;
+}
+.card-endereco .titulo {
   display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  width: 195px;
+  align-items: center;
+  gap: 8px;
+  color: #000;
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 12px;
 }
-.btn-mapa .titulo {
-  padding: 9px;
-  font-weight: bold;
+.card-endereco .titulo svg {
+  width: 18px;
+  height: 18px;
+  fill: #d4a017;
+}
+.card-endereco .endereco {
+  background: #f5f5f5;
+  padding: 12px;
+  border-radius: 8px;
+}
+.card-endereco .endereco strong {
+  color: #000;
+  font-size: 14px;
+  display: block;
+}
+.card-endereco .endereco span {
+  color: #666;
   font-size: 13px;
-  text-align: center;
-  background: #d4a017;
 }
-.btn-mapa .mapa-ilustracao {
-  width: 100%;
-  height: 82px;
-  background-image: url('mapa.JPG');
-  background-size: cover;
-  background-position: center;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
+.card-endereco .ver-mapa {
+  color: #d4a017;
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 8px;
+  display: inline-block;
 }
 
 /* AVALIAÇÕES AGORA EM CIMA */
@@ -327,10 +345,17 @@ body::before {
 
   </div>
 
-  <!-- ENDEREÇO AGORA AQUI NO MEIO -->
-  <a href="https://maps.app.goo.gl/i2s3XrPSPhoCFsY17" target="_blank" class="btn-mapa">
-    <div class="titulo">📍 NOSSO ENDEREÇO</div>
-    <div class="mapa-ilustracao"></div>
+  <!-- ENDEREÇO ATUALIZADO -->
+  <a href="https://maps.app.goo.gl/i2s3XrPSPhoCFsY17" target="_blank" class="card-endereco">
+    <div class="titulo">
+      <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      Localização
+    </div>
+    <div class="endereco">
+      <strong>Estrada João de Oliveira Remião, 5830</strong>
+      <span>Lomba do Pinheiro, Porto Alegre - RS</span>
+      <div class="ver-mapa">Ver no mapa →</div>
+    </div>
   </a>
   
   <!-- BOTÕES WHATSAPP + INSTAGRAM -->
